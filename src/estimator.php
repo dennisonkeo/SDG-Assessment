@@ -54,9 +54,10 @@ function covid19ImpactEstimator($data)
 	$impactDollarsInFlight = ($impactInfectionsByRequestedTime * 4 * 0.73)*periodTpeToDays($data['periodType'],$data['timeToElapse']);
 	$severeDollarsInFlight = ($severeInfectionsByRequestedTime * 0.73 * 4)*periodTpeToDays($data['periodType'],$data['timeToElapse']);
 
-
-
-	$impact = array(
+	$postData = array(
+			'data'=>$data,
+'estimate' => array(
+	'impact' => array(
 			'currentlyInfected'=>intval($impactCurrentlyInfected),
 			'infectionsByRequestedTime'=>intval($impactInfectionsByRequestedTime),
 			'severeCasesByRequestedTime'=>intval($impactSevereCasesByRequestedTime),
@@ -64,9 +65,9 @@ function covid19ImpactEstimator($data)
 			'casesForICUByRequestedTime'=>intval($impactCasesForICUByRequestedTime),
 			'casesForVentilatorsByRequestedTime'=>intval($impactCasesForVentilatorsByRequestedTime),
 			'dollarsInFlight'=>intval($impactDollarsInFlight),
-	);
+	),
 
-	$severeImpact = array(
+	'severeImpact' => array(
 			'currentlyInfected'=>intval($severeCurrentlyInfected),
 			'infectionsByRequestedTime'=>intval($severeInfectionsByRequestedTime),
 			'severeCasesByRequestedTime'=>intval($severeImpactSevereCasesByRequestedTime),
@@ -74,10 +75,12 @@ function covid19ImpactEstimator($data)
 			'casesForICUByRequestedTime'=>intval($severeCasesForICUByRequestedTime),
 			'casesForVentilatorsByRequestedTime'=>intval($severeCasesForVentilatorsByRequestedTime),
 			'dollarsInFlight'=>intval($severeDollarsInFlight),
-	);
+	),
+ )
+);
 
 
-	echo json_encode(['data' => $data, 'estimate'=>array('impact' => $impact, 'severeImpact'=>$severeImpact)]);
+	echo json_encode($postData);
 
 
 }
