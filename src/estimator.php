@@ -29,6 +29,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 function covid19ImpactEstimator($data)
 {
+	$input = $data;
 
 	$factor = intval(periodTpeToDays($data['periodType'], $data['timeToElapse']) / 3);
 
@@ -55,7 +56,7 @@ function covid19ImpactEstimator($data)
 	$severeDollarsInFlight = ($severeInfectionsByRequestedTime * 0.73 * 4)*periodTpeToDays($data['periodType'],$data['timeToElapse']);
 
 	$postData = array(
-			'data'=>$data,
+			'data'=>$input,
 'estimate' => array(
 	'impact' => array(
 			'currentlyInfected'=>intval($impactCurrentlyInfected),
