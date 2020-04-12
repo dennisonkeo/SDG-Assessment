@@ -52,8 +52,8 @@ function covid19ImpactEstimator($data)
 	$impactCasesForVentilatorsByRequestedTime = 0.02 * $impactInfectionsByRequestedTime;
 	$severeCasesForVentilatorsByRequestedTime = 0.02 * $severeInfectionsByRequestedTime;
 
-	$impactDollarsInFlight = ($impactInfectionsByRequestedTime * 4 * 0.73)*periodTpeToDays($data['periodType'],$data['timeToElapse']);
-	$severeDollarsInFlight = ($severeInfectionsByRequestedTime * 0.73 * 4)*periodTpeToDays($data['periodType'],$data['timeToElapse']);
+	$impactDollarsInFlight = ($impactInfectionsByRequestedTime * $data['region']['avgDailyIncomeInUSD'] * $data['region']['avgDailyIncomePopulation'])*periodTpeToDays($data['periodType'],$data['timeToElapse']);
+	$severeDollarsInFlight = ($severeInfectionsByRequestedTime * $data['region']['avgDailyIncomeInUSD'] * $data['region']['avgDailyIncomePopulation'])*periodTpeToDays($data['periodType'],$data['timeToElapse']);
 
 	$postData = array(
 			'data'=>$input,
