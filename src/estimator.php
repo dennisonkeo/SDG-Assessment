@@ -55,8 +55,7 @@ function covid19ImpactEstimator($data)
 	$impactDollarsInFlight = ($impactInfectionsByRequestedTime * $data['region']['avgDailyIncomeInUSD'] * $data['region']['avgDailyIncomePopulation'])/periodTpeToDays($data['periodType'],$data['timeToElapse']);
 	$severeDollarsInFlight = ($severeInfectionsByRequestedTime * $data['region']['avgDailyIncomeInUSD'] * $data['region']['avgDailyIncomePopulation'])/periodTpeToDays($data['periodType'],$data['timeToElapse']);
 
-return(
-	[
+	$postData = array(
 			'data'=>$input,
 'estimate' => array(
 	'impact' => array(
@@ -79,11 +78,10 @@ return(
 			'dollarsInFlight'=>intval($severeDollarsInFlight),
 	),
  )
-]);
+);
 
 
-
-	
+	return $postData;
 
 
 }
