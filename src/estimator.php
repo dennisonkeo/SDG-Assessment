@@ -55,7 +55,7 @@ function covid19ImpactEstimator($data)
 	$impactDollarsInFlight = ($impactInfectionsByRequestedTime * $data['region']['avgDailyIncomeInUSD'] * $data['region']['avgDailyIncomePopulation'])/periodTpeToDays($data['periodType'],$data['timeToElapse']);
 	$severeDollarsInFlight = ($severeInfectionsByRequestedTime * $data['region']['avgDailyIncomeInUSD'] * $data['region']['avgDailyIncomePopulation'])/periodTpeToDays($data['periodType'],$data['timeToElapse']);
 
-echo json_encode(
+return(
 	[
 			'data'=>$input,
 'estimate' => array(
