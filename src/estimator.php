@@ -1,9 +1,9 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers");
+// header("Access-Control-Allow-Origin: *");
+// header("Content-Type: application/json; charset=UTF-8");
+// header("Access-Control-Allow-Methods: POST");
+// header("Access-Control-Max-Age: 3600");
+// header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers");
   
 
  function periodTpeToDays($periodType, $timeToElapse)
@@ -57,7 +57,7 @@ function covid19ImpactEstimator($data)
 
 	$postData = array(
 			'data'=>$input,
-// 'estimate' => array(
+
 	'impact' => array(
 			'currentlyInfected'=>intval($impactCurrentlyInfected),
 			'infectionsByRequestedTime'=>intval($impactInfectionsByRequestedTime),
@@ -77,7 +77,6 @@ function covid19ImpactEstimator($data)
 			'casesForVentilatorsByRequestedTime'=>intval($severeCasesForVentilatorsByRequestedTime),
 			'dollarsInFlight'=>intval($severeDollarsInFlight),
 	),
- // )
 );
 
 
