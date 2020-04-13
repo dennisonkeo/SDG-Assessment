@@ -66,7 +66,7 @@ function covid19ImpactEstimator($data)
 			'casesForICUByRequestedTime'=>intval($impactCasesForICUByRequestedTime),
 			'casesForVentilatorsByRequestedTime'=>intval($impactCasesForVentilatorsByRequestedTime),
 			'dollarsInFlight'=>intval($impactDollarsInFlight),
-	),
+	), 
 
 	'severeImpact' => array(
 			'currentlyInfected'=>intval($severeCurrentlyInfected),
