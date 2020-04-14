@@ -27,6 +27,7 @@
 }
 
 
+
 function covid19ImpactEstimator($data)
 {
 	$input = $data;
